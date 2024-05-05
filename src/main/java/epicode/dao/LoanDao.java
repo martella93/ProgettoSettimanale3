@@ -22,8 +22,6 @@ public class LoanDao {
         et.commit();
     }
 
-
-
     public Loan getById(int id){
         return em.find(Loan.class, id);
     }
@@ -40,14 +38,6 @@ public class LoanDao {
         }
         et.commit();
     }
-
-    public List<Catalogo> findElementiInPrestitoByNumeroTesseraUtente(String numeroTessera) {
-        return em.createQuery("SELECT c FROM Loan l JOIN l.catalogo c JOIN l.user u WHERE u.numeroTessera = :numeroTessera AND l.dataRestituzioneEffettiva IS NULL", Catalogo.class)
-                .setParameter("numeroTessera", numeroTessera)
-                .getResultList();
-    }
-
-
 
     public List<Loan> findPrestitiScadutiENonRestituiti() {
         LocalDate currentDate = LocalDate.now();
