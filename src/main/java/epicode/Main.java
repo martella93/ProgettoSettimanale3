@@ -183,7 +183,7 @@ public class Main {
                     System.out.println("Cerca libri per autore:");
                     System.out.println("Inserisci il nome dell'autore:");
                     scanner.nextLine();
-                    String autore = scanner.nextLine().toLowerCase();
+                    String autore = scanner.nextLine();
                     List<Book> booksByAutore = bookDao.findByAutore(autore);
                     if (!booksByAutore.isEmpty()) {
                         System.out.println("Libri dell'autore " + autore + ":");
@@ -195,7 +195,6 @@ public class Main {
                     }
                     break;
                 case 12:
-                    System.out.println("Cerca libri per titolo contenente:");
                     System.out.println("Inserisci la stringa o lettera da cercare nel titolo:");
                     scanner.nextLine();
                     String searchString = scanner.nextLine().toLowerCase();
@@ -211,7 +210,6 @@ public class Main {
                     break;
 
                 case 13:
-                    System.out.println("Cerca magazine per titolo contenente:");
                     System.out.println("Inserisci la stringa o lettera da cercare nel magazine:");
                     scanner.nextLine();
                     String searchByString = scanner.nextLine().toLowerCase();
