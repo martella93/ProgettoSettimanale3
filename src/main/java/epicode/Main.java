@@ -234,7 +234,7 @@ public class Main {
                     if (prestiti != null && !prestiti.isEmpty()) {
                         System.out.println("Elementi in prestito per il numero di tessera " + numeroTessera1 + ":");
                         for (Loan prestito : prestiti) {
-                            System.out.println(prestito); // Assicurati che la classe Loan abbia un metodo toString() appropriato
+                            System.out.println(prestito);
                         }
                     } else {
                         System.out.println("Nessun elemento trovato in prestito per il numero di tessera " + numeroTessera1);
