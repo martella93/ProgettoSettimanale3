@@ -94,33 +94,24 @@ public class Main {
                 case 4:
                     System.out.println("Effettua un prestito:");
 
-// Ottenere il numero di tessera dell'utente
                     System.out.println("Inserisci il numero di tessera dell'utente:");
                     String numeroTessera = scanner.next();
-
-// Ottenere l'ISBN del libro o della rivista
                     System.out.println("Inserisci l'ISBN del libro o della rivista:");
                     String isbn = scanner.next();
-
-// Ottenere la data di prestito
                     System.out.println("Inserisci la data di prestito (AAAA-MM-GG):");
                     LocalDate loanDate = LocalDate.parse(scanner.next());
-
-// Calcolare la data di restituzione prevista (esempio: 14 giorni dopo la data di prestito)
                     LocalDate returnDate = loanDate.plusDays(14);
 
-// Ottenere l'utente basato sul numero di tessera
                     User user = userDao.getByNumeroTessera(numeroTessera);
 
                     if (user != null) {
-                        // Creare un nuovo prestito
+
                         Loan prestito = new Loan();
                         prestito.setUser(user);
                         prestito.setIsbn(isbn);
                         prestito.setDataInizioPrestito(loanDate); // Imposta la data di inizio prestito
                         prestito.setDataRestituzionePrevista(returnDate); // Imposta la data di restituzione prevista
 
-                        // Effettuare il prestito
                         loanDao.save(prestito);
 
                         System.out.println("Prestito effettuato con successo!");
@@ -235,20 +226,6 @@ public class Main {
                     }
                     break;
                 case 14:
-//                    System.out.println("Cerca elementi in prestito per numero di tessera utente:");
-//                    System.out.println("Inserisci il numero di tessera utente:");
-//                    scanner.nextLine();
-//                    String numeroTessera1 = scanner.nextLine();
-//                    List<Catalogo> elementiInPrestito = loanDao.findElementiInPrestitoByNumeroTesseraUtente(numeroTessera1);
-//                    if (!elementiInPrestito.isEmpty()) {
-//                        System.out.println("Elementi in prestito per il numero di tessera " + numeroTessera1 + ":");
-//                        for (Catalogo elemento : elementiInPrestito) {
-//                            System.out.println(elemento);
-//                        }
-//                    } else {
-//                        System.out.println("Nessun elemento trovato in prestito per il numero di tessera " + numeroTessera1);
-//                    }
-//                    break;
                     System.out.println("Cerca elementi in prestito per numero di tessera utente:");
                     System.out.println("Inserisci il numero di tessera utente:");
                     scanner.nextLine();
